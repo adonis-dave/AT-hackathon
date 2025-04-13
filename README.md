@@ -1,40 +1,10 @@
 <a name="readme-top"></a>
 
-<!--
-!!! IMPORTANT !!!
-This README is an example of how you could professionally present your codebase. 
-Writing documentation is a crucial part of your work as a professional software developer and cannot be ignored. 
-
-You should modify this file to match your project and remove sections that don't apply.
-
-REQUIRED SECTIONS:
-- Table of Contents
-- About the Project
-  - Built With
-  - Live Demo
-- Getting Started
-- Authors
-- Future Features
-- Contributing
-- Show your support
-- Acknowledgements
-- License
-
-OPTIONAL SECTIONS:
-- FAQ
-
-After you're finished please remove all the comments and instructions!
-
-For more information on the importance of a professional README for your repositories: https://github.com/microverseinc/curriculum-transversal-skills/blob/main/documentation/articles/readme_best_practices.md
--->
-
 <div align="center">
-  <!-- You are encouraged to replace this logo with your own! Otherwise you can also remove it. -->
-  <h1>Logo</h1>
+  <img src="murple_logo.png" alt="logo" width="140"  height="auto" />
   <br/>
 
-  <h3><b>README Template</b></h3>
-
+  <h3><b>Cookie Guard</b></h3>
 </div>
 
 <!-- TABLE OF CONTENTS -->
@@ -63,36 +33,36 @@ For more information on the importance of a professional README for your reposit
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [your_project_name] <a name="about-project"></a>
+# 📖 Cookie Guard <a name="about-project"></a>
 
-> Describe your project in 1 or 2 sentences.
-
-**[your_project__name]** is a...
+**Cookie Guard** is a browser extension designed to enhance user privacy and security by blocking cookies, analyzing website risks, and providing detailed reports. It also includes features like ad blocking, redirection prevention, and popup blocking.
 
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
 
-> Describe the tech stack and include only the relevant sections that apply to your project.
-
 <details>
   <summary>Client</summary>
   <ul>
-    <li><a href="https://reactjs.org/">React.js</a></li>
+    <li>HTML</li>
+    <li>CSS</li>
+    <li>JavaScript</li>
   </ul>
 </details>
 
 <details>
   <summary>Server</summary>
   <ul>
-    <li><a href="https://expressjs.com/">Express.js</a></li>
+    <li>Flask (Python)</li>
   </ul>
 </details>
 
 <details>
-<summary>Database</summary>
+<summary>Browser APIs</summary>
   <ul>
-    <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
+    <li>Chrome Extensions API</li>
+    <li>WebRequest API</li>
+    <li>Cookie API</li>
   </ul>
 </details>
 
@@ -100,11 +70,11 @@ For more information on the importance of a professional README for your reposit
 
 ### Key Features <a name="key-features"></a>
 
-> Describe between 1-3 key features of the application.
-
-- **[key_feature_1]**
-- **[key_feature_2]**
-- **[key_feature_3]**
+- **Cookie Blocking**: Removes cookies from websites to enhance privacy.
+- **Risk Analysis**: Analyzes website permissions and cookies for potential risks.
+- **Dark Mode**: Provides a toggle for light and dark themes.
+- **Ad Blocking**: Blocks ads and prevents redirection chains.
+- **SMS Reports**: Sends risk analysis reports via SMS.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -112,9 +82,7 @@ For more information on the importance of a professional README for your reposit
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-> Add a link to your deployed project.
-
-- [Live Demo Link](https://google.com)
+- [Live Demo Link](https://example.com)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -122,83 +90,89 @@ For more information on the importance of a professional README for your reposit
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
-> Describe how a new developer could make use of your project.
-
 To get a local copy up and running, follow these steps.
 
 ### Prerequisites
 
 In order to run this project you need:
 
-<!--
-Example command:
-
-```sh
- gem install rails
-```
- -->
+- A modern web browser (e.g., Chrome)
+- Python installed on your system
+- Flask library installed (`pip install flask`)
 
 ### Setup
 
 Clone this repository to your desired folder:
 
-<!--
-Example commands:
-
 ```sh
-  cd my-folder
-  git clone git@github.com:myaccount/my-project.git
+  git clone https://github.com/adonis-dave/AT-hackathon.git
+  cd AT-hackathon
 ```
---->
 
 ### Install
 
-Install this project with:
-
-<!--
-Example command:
+Install the dependencies for the Flask server:
 
 ```sh
-  cd my-project
-  gem install
+  pip install -r requirements.txt
 ```
---->
 
 ### Usage
 
 To run the project, execute the following command:
 
-<!--
-Example command:
+1. Start the Flask server:
 
-```sh
-  rails server
-```
---->
+   ```sh
+   python Backend/server.py
+   ```
+
+2. Load the extension in Chrome:
+   - Open `chrome://extensions/`
+   - Enable "Developer mode"
+   - Click "Load unpacked" and select the `Backend` folder.
 
 ### Run tests
 
-To run tests, run the following command:
-
-<!--
-Example command:
-
-```sh
-  bin/rails test test/models/article_test.rb
-```
---->
+To run tests, you can use the browser's developer tools to test the extension's functionality.
 
 ### Deployment
 
-You can deploy this project using:
+You can deploy this project by packaging the extension and uploading it to the Chrome Web Store.
 
-<!--
-Example:
+### Setup Instructions
 
-```sh
+1. Clone the repository:
 
-```
- -->
+   ```bash
+   git clone <repository-url>
+   cd AT-hackathon
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. Create a `.env` file in the root directory with the following content:
+
+   ```plaintext
+   AFRICASTALKING_USERNAME=sandbox
+   AFRICASTALKING_API_KEY=your_africastalking_api_key
+   ```
+
+   Replace `your_africastalking_api_key` with your actual API key.
+
+4. Run the application:
+   ```bash
+   python server.py
+   ```
+
+## Notes
+
+- The `.gitignore` file is configured to exclude sensitive files like `.env` and unnecessary files such as logs and temporary files.
+- Ensure that the `.env` file is not shared or uploaded to version control systems.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -206,19 +180,10 @@ Example:
 
 ## 👥 Authors <a name="authors"></a>
 
-> Mention all of the collaborators of this project.
+👤 **Your Name**
 
-👤 **Author1**
-
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
-
-👤 **Author2**
-
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@yourgithubhandle](https://github.com/yourgithubhandle)
+- LinkedIn: [Your LinkedIn](https://linkedin.com/in/yourlinkedinhandle)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -226,11 +191,9 @@ Example:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-> Describe 1 - 3 features you will add to the project.
-
-- [ ] **[new_feature_1]**
-- [ ] **[new_feature_2]**
-- [ ] **[new_feature_3]**
+- [ ] **Enhanced Risk Analysis**
+- [ ] **Multi-language Support**
+- [ ] **Integration with Other Browsers**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -240,7 +203,7 @@ Example:
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](../../issues/).
+Feel free to check the [issues page](https://github.com/yourusername/cookies-guard/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -248,19 +211,15 @@ Feel free to check the [issues page](../../issues/).
 
 ## ⭐️ Show your support <a name="support"></a>
 
-> Write a message to encourage readers to support your project
-
-If you like this project...
+If you like this project, please give it a ⭐️ and share it with others!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- ACKNOWLEDGEMENTS -->
 
-## 🙏 Acknowledgments <a name="acknowledgements"></a>
+## 🙏 Acknowledgements <a name="acknowledgements"></a>
 
-> Give credit to everyone who inspired your codebase.
-
-I would like to thank...
+I would like to thank Microverse for providing the inspiration and guidance for this project.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -268,15 +227,13 @@ I would like to thank...
 
 ## ❓ FAQ (OPTIONAL) <a name="faq"></a>
 
-> Add at least 2 questions new developers would ask when they decide to use your project.
+- **Can I use this extension on other browsers?**
 
-- **[Question_1]**
+  - Currently, it is designed for Chrome, but future updates may include support for other browsers.
 
-  - [Answer_1]
+- **How do I report a bug?**
 
-- **[Question_2]**
-
-  - [Answer_2]
+  - Please open an issue on the GitHub repository.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -284,8 +241,7 @@ I would like to thank...
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](./LICENSE) licensed.
-
-_NOTE: we recommend using the [MIT license](https://choosealicense.com/licenses/mit/) - you can set it up quickly by [using templates available on GitHub](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository). You can also use [any other license](https://choosealicense.com/licenses/) if you wish._
+This project is [MIT](./MIT.md) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+````

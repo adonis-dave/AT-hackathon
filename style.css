@@ -1,0 +1,487 @@
+:root {
+  /* Light theme variables (default) */
+  --color-background: #ffffff;
+  --color-foreground: #0f172a;
+  --color-muted: #64748b;
+  --color-muted-foreground: #94a3b8;
+  --color-border: #e2e8f0;
+  --color-primary: #0f172a;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #f1f5f9;
+  --color-secondary-foreground: #0f172a;
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: #ffffff;
+  --color-warning: #f59e0b;
+  --color-warning-foreground: #ffffff;
+  --color-success: #68f88c;
+  --color-success-foreground: #ffffff;
+  --color-card: #ffffff;
+  --color-card-foreground: #0f172a;
+  --radius: 0.5rem;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  
+  /* Added transition for smooth theme switching */
+  --transition-theme: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Added dark theme variables */
+.dark {
+  --color-background: #0f172a;
+  --color-foreground: #f8fafc;
+  --color-muted: #94a3b8;
+  --color-muted-foreground: #cbd5e1;
+  --color-border: #1e293b;
+  --color-primary: #f8fafc;
+  --color-primary-foreground: #0f172a;
+  --color-secondary: #1e293b;
+  --color-secondary-foreground: #f8fafc;
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: #ffffff;
+  --color-warning: #f59e0b;
+  --color-warning-foreground: #ffffff;
+  --color-success: #10b981;
+  --color-success-foreground: #ffffff;
+  --color-card: #1e293b;
+  --color-card-foreground: #f8fafc;
+}
+
+/* Bootstrap Overrides for Light/Dark Theme */
+.dark .navbar {
+  background-color: var(--color-card);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.navbar {
+  background-color: var(--color-background);
+  border-bottom: 1px solid var(--color-border);
+  transition: var(--transition-theme);
+}
+
+.dark .navbar-brand,
+.dark .nav-link,
+.dark .navbar-toggler-icon {
+  color: var(--color-foreground);
+}
+
+.navbar-brand,
+.nav-link {
+  color: var(--color-foreground);
+  transition: var(--transition-theme);
+}
+
+.dark .offcanvas {
+  background-color: var(--color-card);
+  color: var(--color-foreground);
+}
+
+.offcanvas {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  transition: var(--transition-theme);
+}
+
+.dark .dropdown-menu {
+  background-color: var(--color-card);
+  border-color: var(--color-border);
+}
+
+.dropdown-menu {
+  background-color: var(--color-background);
+  border-color: var(--color-border);
+  transition: var(--transition-theme);
+}
+
+.dark .dropdown-item {
+  color: var(--color-foreground);
+}
+
+.dropdown-item {
+  color: var(--color-foreground);
+  transition: var(--transition-theme);
+}
+
+.dark .dropdown-item:hover {
+  background-color: var(--color-secondary);
+}
+
+.dropdown-item:hover {
+  background-color: var(--color-secondary);
+}
+
+.dark .form-control {
+  background-color: var(--color-secondary);
+  border-color: var(--color-border);
+  color: var(--color-foreground);
+}
+
+.form-control {
+  background-color: var(--color-background);
+  border-color: var(--color-border);
+  color: var(--color-foreground);
+  transition: var(--transition-theme);
+}
+
+.dark .btn-outline-success {
+  color: var(--color-success);
+  border-color: var(--color-success);
+}
+
+.btn-outline-success {
+  transition: var(--transition-theme);
+}
+
+/* End Bootstrap Overrides */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-secondary);
+  color: var(--color-foreground);
+  line-height: 1.5;
+  padding: 0;
+  transition: var(--transition-theme);
+}
+
+/* Added for fixed navbar */
+.main-content {
+  padding-top: 5rem;
+  padding-bottom: 2rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.dashboard-header {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .dashboard-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.header-content h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.subtitle {
+  color: var(--color-muted);
+  font-size: 0.875rem;
+}
+
+.search-container {
+  display: flex;
+  gap: 0.5rem;
+}
+
+input {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  font-size: 0.875rem;
+  width: 100%;
+  outline: none;
+  /* Added for dark theme */
+  background-color: var(--color-card);
+  color: var(--color-foreground);
+  transition: var(--transition-theme);
+}
+
+input:focus {
+  border-color: var(--color-primary);
+}
+
+.icon-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-background);
+  color: var(--color-muted);
+  cursor: pointer;
+  /* Added transition for smooth theme switching */
+  transition: var(--transition-theme);
+}
+
+.icon-button:hover {
+  background-color: var(--color-secondary);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.stat-card {
+  background-color: var(--color-card);
+  border-radius: var(--radius);
+  padding: 1rem;
+  border: 1px solid var(--color-border);
+  /* Added transition for smooth theme switching */
+  transition: var(--transition-theme);
+}
+
+.stat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.stat-header h3 {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-muted);
+}
+
+.stat-header svg {
+  color: var(--color-muted);
+}
+
+.stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.stat-description {
+  font-size: 0.75rem;
+  color: var(--color-muted);
+  margin-top: 0.25rem;
+}
+
+.tabs-container {
+  background-color: var(--color-card);
+  border-radius: var(--radius);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  /* Added transition for smooth theme switching */
+  transition: var(--transition-theme);
+}
+
+.tabs {
+  display: flex;
+  overflow-x: auto;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.tab {
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-muted);
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  /* Added transition for smooth theme switching */
+  transition: var(--transition-theme);
+}
+
+.tab.active {
+  color: var(--color-primary);
+  border-bottom: 2px solid var(--color-primary);
+  margin-bottom: -1px;
+}
+
+.tab-content {
+  display: none;
+  padding: 1rem;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.125rem 0.5rem;
+  border-radius: 9999px;
+  background-color: var(--color-secondary);
+  color: var(--color-secondary-foreground);
+  /* Added transition for smooth theme switching */
+  transition: var(--transition-theme);
+}
+
+.badge-red {
+  background-color: var(--color-destructive);
+  color: var(--color-destructive-foreground);
+}
+
+.badge-yellow {
+  background-color: var(--color-warning);
+  color: var(--color-warning-foreground);
+}
+
+.badge-outline {
+  background-color: transparent;
+  border: 1px solid var(--color-border);
+}
+
+.notifications-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.notification-card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  /* Added transition for smooth theme switching */
+  transition: var(--transition-theme);
+}
+
+.notification-header {
+  display: flex;
+  gap: 0.75rem;
+  padding: 1rem 1rem 0.5rem 1rem;
+}
+
+.notification-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 9999px;
+  background-color: var(--color-secondary);
+  /* Added transition for smooth theme switching */
+  transition: var(--transition-theme);
+}
+
+.notification-icon.high {
+  background-color: rgba(239, 68, 68, 0.1);
+}
+
+.notification-icon.high svg {
+  color: var(--color-destructive);
+}
+
+.notification-icon.medium {
+  background-color: rgba(245, 158, 11, 0.1);
+}
+
+.notification-icon.medium svg {
+  color: var(--color-warning);
+}
+
+.notification-icon.low {
+  background-color: var(--color-secondary);
+}
+
+.notification-icon.low svg {
+  color: var(--color-muted);
+}
+
+.notification-title-container {
+  flex: 1;
+}
+
+.notification-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.notification-title {
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+.notification-meta {
+  font-size: 0.75rem;
+  color: var(--color-muted);
+  margin-top: 0.25rem;
+}
+
+.notification-content {
+  padding: 0.5rem 1rem;
+}
+
+.notification-description {
+  font-size: 0.875rem;
+}
+
+.notification-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  border-top: 1px solid var(--color-border);
+  /* Added transition for smooth theme switching */
+  transition: var(--transition-theme);
+}
+
+.notification-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.375rem 0.75rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  border: none;
+  /* Added transition for smooth theme switching */
+  transition: var(--transition-theme);
+}
+
+.button-outline {
+  background-color: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-foreground);
+}
+
+.button-primary {
+  background-color: var(--color-primary);
+  color: var(--color-primary-foreground);
+}
+
+.type-badge {
+  text-transform: capitalize;
+}

@@ -1,0 +1,51 @@
+# Python-specific ignores
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.env
+*.venv
+*.egg
+*.egg-info/
+dist/
+build/
+*.log
+
+# Environment variables and credentials
+.env
+*.key
+*.pem
+*.crt
+*.json
+*.config
+*.secret
+
+# Sensitive configuration files
+config/
+credentials/
+
+# Docker-related ignores
+*.dockerfile
+*.tar
+*.img
+*.iso
+docker-compose.override.yml
+
+# IDE-specific ignores
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# OS-specific ignores
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
+*.swp
+*.swo
+*.~*

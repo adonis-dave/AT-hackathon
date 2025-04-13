@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cookie Guard Dashboard</title>
+    <!-- Added Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    />
+  </head>
+  <body>
+    <!-- Added Bootstrap Offcanvas Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container-fluid">
+        <div
+          class="row"
+          tabindex="-1"
+          id="offcanvasNavbar"
+          aria-labelledby="offcanvasNavbarLabel"
+        >
+          <div class="col">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#">Dashboard</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Settings</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Privacy Report</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Categories
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Permissions</a></li>
+                  <li>
+                    <a class="dropdown-item" href="#">Privacy Concerns</a>
+                  </li>
+                  <li><a class="dropdown-item" href="#">Terms Changes</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- Theme toggle button in navbar -->
+        <button id="theme-toggle" class="btn btn-link nav-link px-2 ms-2">
+          <svg
+            id="theme-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="5" />
+            <path d="M12 1v2" />
+            <path d="M12 21v2" />
+            <path d="M4.22 4.22l1.42 1.42" />
+            <path d="M18.36 18.36l1.42 1.42" />
+            <path d="M1 12h2" />
+            <path d="M21 12h2" />
+            <path d="M4.22 19.78l1.42-1.42" />
+            <path d="M18.36 5.64l1.42-1.42" />
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <div class="container main-content">
+      <header class="dashboard-header">
+        <div class="header-content">
+          <h1>Privacy & Security Dashboard</h1>
+          <p class="subtitle">
+            Monitor app permissions and potential privacy concerns
+          </p>
+        </div>
+        <div class="search-container">
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Search notifications..."
+          />
+          <button id="filter-button" class="icon-button">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" />
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <div class="stats-grid">
+        <div class="stat-card card text-bg-info">
+          <div class="stat-header">
+            <h3>Total Alerts</h3>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" />
+              <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" />
+            </svg>
+          </div>
+          <div class="stat-content">
+            <div class="stat-value" id="total-count">0</div>
+            <p class="stat-description">
+              <span id="high-count">0</span> high priority
+            </p>
+          </div>
+        </div>
+        <div class="stat-card card text-bg-dark">
+          <div class="stat-header">
+            <h3>Permissions</h3>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect width="18" height="11" x="3" y="11" rx="2" ry="2" />
+              <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+            </svg>
+          </div>
+          <div class="stat-content">
+            <div class="stat-value" id="permission-count">0</div>
+            <p class="stat-description">App access permissions</p>
+          </div>
+        </div>
+        <div class="stat-card card text-bg-warning">
+          <div class="stat-header">
+            <h3>Privacy Concerns</h3>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M20 9v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V9" />
+              <path d="M9 22v-4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v4" />
+              <path
+                d="M14.7 9 16 7.6a2.2 2.2 0 1 0-3.12-3.12L12 5.3l-.88-.88A2.2 2.2 0 0 0 8 7.6L9.3 9"
+              />
+              <path d="M12 9v3" />
+            </svg>
+          </div>
+          <div class="stat-content">
+            <div class="stat-value" id="privacy-count">0</div>
+            <p class="stat-description">Data collection issues</p>
+          </div>
+        </div>
+        <div class="stat-card card border-success">
+          <div class="stat-header">
+            <h3>Terms Changes</h3>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 16v-4" />
+              <path d="M12 8h.01" />
+            </svg>
+          </div>
+          <div class="stat-content">
+            <div class="stat-value" id="terms-count">0</div>
+            <p class="stat-description">Updated agreements</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tabs-container">
+        <div class="tabs">
+          <button class="tab active" data-tab="all">All Notifications</button>
+          <button type="button" class="tab btn btn-danger" data-tab="high">
+            High Priority
+            <span class="badge badge-red" id="high-badge">0</span>
+          </button>
+          <button type="button" class="tab btn btn-dark" data-tab="permissions">Permissions</button>
+          <button type="button" class="tab btn btn-warning" data-tab="privacy">Privacy</button>
+          <button type="button" class="tab btn btn-outline-success" data-tab="terms">Terms</button>
+        </div>
+        <div class="tab-content active" id="all-tab">
+          <div id="all-notifications" class="notifications-list"></div>
+        </div>
+        <div class="tab-content" id="high-tab">
+          <div id="high-notifications" class="notifications-list"></div>
+        </div>
+        <div class="tab-content" id="permissions-tab">
+          <div id="permissions-notifications" class="notifications-list"></div>
+        </div>
+        <div class="tab-content" id="privacy-tab">
+          <div id="privacy-notifications" class="notifications-list"></div>
+        </div>
+        <div class="tab-content" id="terms-tab">
+          <div id="terms-notifications" class="notifications-list"></div>
+        </div>
+      </div>
+    </div>
+
+    <template id="notification-template">
+      <div class="notification-card card border-dark">
+        <div class="notification-header card text-bg-secondary">
+          <div class="notification-icon">
+            <svg class="icon"></svg>
+          </div>
+          <div class="notification-title-container">
+            <div class="notification-title-row">
+              <h3 class="notification-title"></h3>
+              <span class="badge"></span>
+            </div>
+            <p class="notification-meta"></p>
+          </div>
+        </div>
+        <div class="notification-content">
+          <p class="notification-description"></p>
+        </div>
+        <div class="notification-footer badge border dark">
+          <span class="badge type-badge"></span>
+          <div class="notification-actions">
+            <button class="button button-outline">Ignore</button>
+            <button class="button button-primary">Review</button>
+          </div>
+        </div>
+      </div>
+    </template>
+
+    <!-- Added Bootstrap JS with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

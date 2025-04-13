@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookies Guard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <h1>I-INNOVATORS</h1>
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+        padding: 20px;
+        width: 300px;
+        background-color: cyan;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        min-height: 100vh;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      body.dark-mode{
+        background-color: black;
+        color: black;
+      }
+
+      .container {
+        max-width: 600px;
+        width: 95%;
+        margin-top: 20px;
+        padding: 20px;
+        background-color: #ffff;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      h1 {
+        color: blue;
+        text-align: center;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-style: inherit;
+        font-size: 2.4rem;
+      }
+      .input-section {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+        width: 100%;
+      }
+      .input-section {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        margin-top: 15px;
+      }
+      .input-section button {
+        padding: 12px 25px;
+        background-color: #428bca;
+        color: #ffff;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+      .feedback-container{
+        margin-top: 20px;
+        padding: 15px;
+        background-color: #f5f5f5;
+        border-radius: 8px;
+        text-align: center;
+      }
+      .toggle-container {
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+         width: 100%;
+        }
+
+        .toggle-label {
+          margin-bottom: 10px;
+          color: #210af0;
+          font-size: 1.2rem;
+        }
+
+        .toggle-switch {
+          position: relative;
+          display: inline-block;
+          width: 60px;
+          height: 24px;
+        }
+
+        .toggle-switch input {
+          opacity: 0;
+          width: 0;
+          height: 0;
+        }
+
+        .slider {
+          position: absolute;
+          cursor: pointer;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;        background-color: #ccc;
+          transition: .4s;
+          border-radius: 34px;
+        }
+
+        .slider:before {
+          position: absolute;
+          content: "";
+          height: 16px;
+          width: 16px;
+          left: 4px;
+          bottom: 4px;
+          background-color: white;
+          transition: .4s;
+          border-radius: 50%;
+        }
+
+
+        input:checked + .slider {
+            background-color: #428bca;
+        }
+
+      p {
+        color: hwb(0 7% 5%);
+        text-align: center;
+      }
+      #check-button, #fetch-terms-button {
+        background-color: hsl(229, 80%, 52%);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px;
+        cursor: pointer;
+        width: 100%;
+        margin-top: 10px;
+        transition: background-color 0.3s;
+      }
+      #check-button:hover, #fetch-terms-button:hover {
+        background-color: #115ccc;
+      }
+      input[type="tel"], input[type="text"] {
+        width: calc(100% - 20px);
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      input[type="checkbox"] {
+        margin-right: 5px;
+      }
+      #risk-feedback {
+        margin-top: 20px;
+        color: red;
+        border: 1px solid #ffcccc;
+        background-color: #ffe6e6;
+        padding: 10px;
+        border-radius: 5px;
+      }
+      .checkbox-label {
+        display: flex;
+        align-items: center;
+      }
+      .checkbox-label img {
+        margin-right: 5px;
+        width: 20px;
+        height: 20px;
+      }
+    </style>
+</head>
+<body>
+    <h1>Cookies Guard</h1>
+    <p>Enter your phone number to get a cookie risk report!</p>
+    <input type="tel" id="phone-number-input" placeholder="Phone Number (+2557XXXXXXXX)">
+    <button id="check-button">Check Risks & Send SMS</button>
+    
+    <div class="controls-section">
+        <div class="control-group">
+            <label class="toggle-label">Dark Mode</label>
+            <label class="toggle-switch">
+                <input type="checkbox" id="mode-toggle">
+                <span class="slider"></span>
+            </label>
+        </div>
+        <div class="control-group">
+            <label class="toggle-label">Block Ads and Cookies</label>
+            <label class="toggle-switch" style="margin-top: 15px;">
+                <input type="checkbox" id="block-toggle">
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        <div class="control-group">
+            <label class="toggle-label">Prevent Redirection</label>
+            <label class="toggle-switch" style="margin-top: 15px;">
+                <input type="checkbox" id="redirect-toggle">
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        <div class="control-group">
+            <label class="toggle-label">Block Popups</label>
+            <label class="toggle-switch" style="margin-top: 15px;">
+                <input type="checkbox" id="popup-toggle">
+                <span class="slider"></span>
+            </label>
+        </div>
+    </div>
+</div>
+    <div>
+        <input type="text" id="url-input" placeholder="URL for Terms & Conditions">
+        <button id="fetch-terms-button">Fetch Terms & Privacy</button>
+    </div>
+    
+    <div id="risk-feedback"></div>
+    
+    <script src="popup.js"></script>
+</body>
+</html>
