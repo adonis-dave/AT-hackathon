@@ -145,7 +145,7 @@ You can deploy this project by packaging the extension and uploading it to the C
 1. Clone the repository:
 
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/adonis-dave/AT-hackathon.git
    cd AT-hackathon
    ```
 
